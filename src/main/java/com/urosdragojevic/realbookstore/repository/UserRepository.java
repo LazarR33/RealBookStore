@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 @Repository
-public class UserRepository {
+public class    UserRepository {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserRepository.class);
 
@@ -35,6 +35,7 @@ public class UserRepository {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            LOG.warn("Error while fetching user");
         }
         return null;
     }
@@ -47,6 +48,7 @@ public class UserRepository {
             return rs.next();
         } catch (SQLException e) {
             e.printStackTrace();
+            LOG.error("Error while validating credentials");
         }
         return false;
     }
@@ -59,6 +61,7 @@ public class UserRepository {
             statement.executeUpdate(query);
         } catch (SQLException e) {
             e.printStackTrace();
+            LOG.warn("Error while deleting user" + userId);
         }
     }
 }

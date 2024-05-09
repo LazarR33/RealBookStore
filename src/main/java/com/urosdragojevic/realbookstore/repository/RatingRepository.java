@@ -46,6 +46,7 @@ public class RatingRepository {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            LOG.warn("Failed to retrieve rating");
         }
     }
 
@@ -60,6 +61,7 @@ public class RatingRepository {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            LOG.warn("Error while getting all ratings");
         }
         return ratingList;
     }

@@ -37,6 +37,7 @@ public class RoleRepository {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            LOG.warn("Failed to fetch rules");
         }
         return roles;
     }
